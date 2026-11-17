@@ -1,8 +1,8 @@
-# STNLab
+# Simple temporal
 
 STNLab checks exact simple temporal networks for small supplied plans. Each input edge `[u,v,w]` means `t[v] - t[u] <= w`. Inspect a strongest implied upper bound, a complete schedule attaining it, an unbounded translation ray, or a negative cycle proving no schedule exists.
 
-[Interactive temporal inspector](https://midya8.github.io/stnlab/) · [Exact method and seven-source ledger](METHOD.md)
+[Interactive temporal inspector](https://midya8.github.io/simple-temporal/) · [Exact method and seven-source ledger](METHOD.md)
 
 The default network directly allows `t2-t0 <= 12`, but a two-edge chain proves `<= 7`. A full feasible assignment reaches 7, so the bound is tight. A second network has three individually feasible edges summing to `0 <= -1`. An isolated anchor does not hide a conflict in another component. Missing directed paths are unbounded, not inconsistent.
 
@@ -56,7 +56,7 @@ At most six time points, 12 directed edges, integer input weights -20..20. Times
 
 ## Single-edge insertion
 
-[Insertion inspector](https://midya8.github.io/stnlab/insertions.html) · [Insertion contract and source ledger](INSERTIONS.md)
+[Insertion inspector](https://midya8.github.io/simple-temporal/insertions.html) · [Insertion contract and source ledger](INSERTIONS.md)
 
 Add one proposed [u,v,w] constraint to a fixed base. Its exact feasible threshold is -D[v,u], or no finite lower threshold when the return path is absent. The boundary has a full feasible schedule; one below it has a negative-cycle certificate. A redundant proposal changes no matrix entry. Otherwise inspect every old/new bound, old left and right routes through the candidate, canonical post-insertion path, attaining schedule or unbounded ray. A 41-weight integer sweep shows the consistency/tightening/redundancy regions and exact changed-cell counts.
 
@@ -72,7 +72,7 @@ One candidate at a time, not accumulated insertions or a fully dynamic planner. 
 
 ## Existential projection
 
-[Projection inspector](https://midya8.github.io/stnlab/projection.html) · [Exact contract and six-source ledger](PROJECTION.md)
+[Projection inspector](https://midya8.github.io/simple-temporal/projection.html) · [Exact contract and six-source ledger](PROJECTION.md)
 
 Hide time points without losing constraints implied through them. Compare exact closure restriction with naive edge deletion, test a retained assignment, and inspect a full original-network extension or an original path proving it impossible. Every finite projected difference has a complete attaining schedule; missing paths have anchored unbounded rays. Naive-deletion counterexamples show the lost consequences explicitly. An inconsistent hidden component still makes projection empty.
 
@@ -87,6 +87,6 @@ Twelve synthetic controls, independent permutation/edge-product replay, a separa
 
 ## Complete conflicts and repairs
 
-[All-conflict inspector](https://midya8.github.io/stnlab/conflicts.html) | [Contract and source ledger](CONFLICTS.md)
+[All-conflict inspector](https://midya8.github.io/simple-temporal/conflicts.html) | [Contract and source ledger](CONFLICTS.md)
 
 Inspect every inclusion-minimal inconsistent edge set and every inclusion-minimal correction set. Full conflict-deletion schedules prove minimality; restoration cycles prove every proposed removal is needed. Complete subset feasibility, minimum-cardinality ties and both directions of hitting-set duality are independently audited. Ten original controls include unequal-size minimal repairs, disconnected conflicts, duplicate edges, zero cycles and a 12-edge complete directed network. Classical bounded temporal diagnosis, not a new algorithm or real execution.
