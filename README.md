@@ -1,6 +1,6 @@
 # Simple temporal
 
-STNLab checks exact simple temporal networks for small supplied plans. Each input edge `[u,v,w]` means `t[v] - t[u] <= w`. Inspect a strongest implied upper bound, a complete schedule attaining it, an unbounded translation ray, or a negative cycle proving no schedule exists.
+This implementation checks exact simple temporal networks for small supplied plans. Each input edge `[u,v,w]` means `t[v] - t[u] <= w`. Inspect a strongest implied upper bound, a complete schedule attaining it, an unbounded translation ray, or a negative cycle proving no schedule exists.
 
 [Interactive temporal inspector](https://midya8.github.io/simple-temporal/) · [Exact method and seven-source ledger](METHOD.md)
 
